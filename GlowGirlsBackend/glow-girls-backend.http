@@ -1,0 +1,6 @@
+@glow_girls_backend_HostAddress = http://localhost:5193
+
+GET {{glow_girls_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlowGirlsBackend", "GlowGirlsBackend\GlowGirlsBackend.csproj", "{20587AC3-06E6-4CDC-A90B-4ED41E081F44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlowGirlsData", "GlowGirlsData\GlowGirlsData.csproj", "{3A75EB02-38BE-4065-9837-B885D127FA13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediator", "Mediator\Mediator.csproj", "{9C06C456-BF96-433C-AB68-7FA3D2D203E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20587AC3-06E6-4CDC-A90B-4ED41E081F44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20587AC3-06E6-4CDC-A90B-4ED41E081F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20587AC3-06E6-4CDC-A90B-4ED41E081F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20587AC3-06E6-4CDC-A90B-4ED41E081F44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A75EB02-38BE-4065-9837-B885D127FA13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A75EB02-38BE-4065-9837-B885D127FA13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A75EB02-38BE-4065-9837-B885D127FA13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A75EB02-38BE-4065-9837-B885D127FA13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C06C456-BF96-433C-AB68-7FA3D2D203E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C06C456-BF96-433C-AB68-7FA3D2D203E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C06C456-BF96-433C-AB68-7FA3D2D203E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C06C456-BF96-433C-AB68-7FA3D2D203E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
