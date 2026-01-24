@@ -57,7 +57,7 @@ public class GoogleCalendarService : IGoogleCalendarService
         };
         var calendarRequest = _calendarService.Events.Insert(
             newEvent,
-            "glowgirlsparlour@gmail.com"
+            "parlour@gmail.com"
         );
         return await calendarRequest.ExecuteAsync(cancellationToken);
     }
