@@ -39,7 +39,7 @@ public class MediatorControllerBase(IMediator mediator) : ControllerBase
             2000 => StatusCodes.Status404NotFound,
             3000 => StatusCodes.Status401Unauthorized,
             4000 => StatusCodes.Status403Forbidden,
-            _ => StatusCodes.Status500InternalServerError
+            _ => StatusCodes.Status500InternalServerError,
         };
     }
 }

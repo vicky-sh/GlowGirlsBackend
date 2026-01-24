@@ -25,6 +25,7 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        services.AddScoped<IEMailService, EmailService>();
         services.AddHttpContextAccessor();
 
         services.AddHangfire(h =>

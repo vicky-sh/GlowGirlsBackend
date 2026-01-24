@@ -41,9 +41,7 @@ public class Result<T> : Result
     }
 
     private Result(List<Error> errors)
-        : base(false, errors)
-    {
-    }
+        : base(false, errors) { }
 
     public T? Value { get; }
 

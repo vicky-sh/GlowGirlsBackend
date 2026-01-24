@@ -7,7 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi(o => { o.AddOperationTransformer(new ClientSecretTransformer()); });
+builder.Services.AddOpenApi(o =>
+{
+    o.AddOperationTransformer(new ClientSecretTransformer());
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpClient();
 builder.Services.AddControllers();
@@ -19,14 +22,17 @@ app.UseClientSecretValidation();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "v1"); });
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "v1");
+    });
 }
 
 app.UseHangfireDashboard(
     "/hangfire",
     new DashboardOptions
     {
-        Authorization = [new HangfireDashboardAuthorizationFilter(builder.Configuration)]
+        Authorization = [new HangfireDashboardAuthorizationFilter(builder.Configuration)],
     }
 );
 

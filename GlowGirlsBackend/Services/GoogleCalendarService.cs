@@ -29,7 +29,7 @@ public class GoogleCalendarService : IGoogleCalendarService
             new BaseClientService.Initializer
             {
                 HttpClientInitializer = credential,
-                ApplicationName = "GlowGirlsBackend"
+                ApplicationName = "GlowGirlsBackend",
             }
         );
     }
@@ -47,13 +47,13 @@ public class GoogleCalendarService : IGoogleCalendarService
             Start = new EventDateTime
             {
                 DateTimeDateTimeOffset = DateTimeOffset.UtcNow.AddHours(3),
-                TimeZone = "Asia/Kolkata"
+                TimeZone = "Asia/Kolkata",
             },
             End = new EventDateTime
             {
                 DateTimeDateTimeOffset = DateTimeOffset.UtcNow.AddHours(4),
-                TimeZone = "Asia/Kolkata"
-            }
+                TimeZone = "Asia/Kolkata",
+            },
         };
         var calendarRequest = _calendarService.Events.Insert(
             newEvent,

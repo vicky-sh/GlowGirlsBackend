@@ -33,7 +33,8 @@ public class Repository<T>(GlowGirlsDbContext dbContext)
                     // Only update UpdatedAt if there was an actual change.
                     var hasChanges = entry.Properties.Any(p => p.IsModified);
 
-                    if (hasChanges) entry.Entity.UpdatedAt = DateTime.UtcNow;
+                    if (hasChanges)
+                        entry.Entity.UpdatedAt = DateTime.UtcNow;
 
                     // Prevent updating the CreatedAt column
                     entry.Property(nameof(IAuditableEntity.CreatedAt)).IsModified = false;

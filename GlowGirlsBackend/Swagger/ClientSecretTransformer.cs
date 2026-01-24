@@ -20,7 +20,7 @@ public class ClientSecretTransformer : IOpenApiOperationTransformer
                 In = ParameterLocation.Header,
                 Required = true,
                 Schema = new OpenApiSchema { Type = "string" },
-                Description = "Client secret header required for API access."
+                Description = "Client secret header required for API access.",
             }
         );
 
