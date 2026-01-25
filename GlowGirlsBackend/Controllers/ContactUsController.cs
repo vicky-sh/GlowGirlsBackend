@@ -16,9 +16,6 @@ public class ContactUsController(IMediator mediator) : MediatorControllerBase(me
         CancellationToken cancellationToken
     )
     {
-        return await HandleCommandAsync(
-            new ContactUsCommand(emailDto),
-            cancellationToken
-        );
+        return await HandleCommandAsync(new ContactUsCommand(emailDto), cancellationToken);
     }
 }

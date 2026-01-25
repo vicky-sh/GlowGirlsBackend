@@ -8,12 +8,9 @@ public class ClientSecretMiddleware(RequestDelegate next, IConfiguration configu
 
         // Allow Swagger UI in Development mode
         if (
-            environment.IsDevelopment()
-            && (
-                context.Request.Path.StartsWithSegments("/swagger")
-                || context.Request.Path.StartsWithSegments("/openapi")
-                || context.Request.Path.StartsWithSegments("/hangfire")
-            )
+            context.Request.Path.StartsWithSegments("/swagger")
+            || context.Request.Path.StartsWithSegments("/openapi")
+            || context.Request.Path.StartsWithSegments("/hangfire")
         )
         {
             await next(context);

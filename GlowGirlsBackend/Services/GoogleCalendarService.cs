@@ -55,10 +55,7 @@ public class GoogleCalendarService : IGoogleCalendarService
                 TimeZone = "Asia/Kolkata",
             },
         };
-        var calendarRequest = _calendarService.Events.Insert(
-            newEvent,
-            "parlour@gmail.com"
-        );
+        var calendarRequest = _calendarService.Events.Insert(newEvent, "parlour@gmail.com");
         return await calendarRequest.ExecuteAsync(cancellationToken);
     }
 }
