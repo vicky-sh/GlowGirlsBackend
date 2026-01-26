@@ -1,6 +1,6 @@
 namespace GlowGirlsBackend.Models;
 
-public class EMailModel(
+public class ContactModel(
     string senderName,
     string senderEmail,
     string message,
@@ -9,7 +9,7 @@ public class EMailModel(
     string subject,
     string? ccName,
     string? ccEmail
-) : EmailDto(senderName, senderEmail, message)
+) : ContactDto(senderName, senderEmail, message)
 {
     public string RecipientName { get; set; } = recipientName;
     public string RecipientEmail { get; set; } = recipientEmail;

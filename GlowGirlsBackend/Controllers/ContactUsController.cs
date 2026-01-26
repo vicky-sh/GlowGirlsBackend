@@ -12,10 +12,10 @@ public class ContactUsController(IMediator mediator) : MediatorControllerBase(me
 {
     [HttpPost]
     public async Task<ActionResult<Result>> SendContactUsEmail(
-        [FromBody] EmailDto emailDto,
+        [FromBody] ContactDto contactDto,
         CancellationToken cancellationToken
     )
     {
-        return await HandleCommandAsync(new ContactUsCommand(emailDto), cancellationToken);
+        return await HandleCommandAsync(new ContactUsCommand(contactDto), cancellationToken);
     }
 }

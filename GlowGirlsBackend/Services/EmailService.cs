@@ -12,7 +12,7 @@ public class EmailService(IOptions<GmailSettings> gmailSettings) : IEMailService
 {
     private readonly GmailSettings _gmailSettings = gmailSettings.Value;
 
-    public async Task SendAsync(EMailModel eMailModel, CancellationToken cancellationToken)
+    public async Task SendAsync(ContactModel contactModel, CancellationToken cancellationToken)
     {
         using var client = new SmtpClient();
         await client.ConnectAsync(
@@ -30,15 +30,15 @@ public class EmailService(IOptions<GmailSettings> gmailSettings) : IEMailService
 
         var mailMessage = new MimeMessage
         {
-            From = { new MailboxAddress(eMailModel.SenderName, eMailModel.SenderEmail) },
-            To = { new MailboxAddress(eMailModel.RecipientName, eMailModel.RecipientEmail) },
-            Subject = eMailModel.Subject,
-            Body = new TextPart("plain") { Text = eMailModel.Message },
+            From = { new MailboxAddress(contactModel.SenderName, contactModel.SenderEmail) },
+            To = { new MailboxAddress(contactModel.RecipientName, contactModel.RecipientEmail) },
+            Subject = contactModel.Subject,
+            Body = new TextPart("plain") { Text = contactModel.Message },
         };
 
-        if (eMailModel is { CcName: not null, CcEmail: not null })
+        if (contactModel is { CcName: not null, CcEmail: not null })
         {
-            mailMessage.Cc.Add(new MailboxAddress(eMailModel.CcName, eMailModel.CcEmail));
+            mailMessage.Cc.Add(new MailboxAddress(contactModel.CcName, contactModel.CcEmail));
         }
 
         await client.SendAsync(mailMessage, cancellationToken);

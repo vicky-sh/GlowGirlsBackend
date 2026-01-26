@@ -19,13 +19,16 @@ public class ContactUsCommandHandler(
     {
         var firstJobId = backgroundJobClient.Enqueue<IEMailService>(x =>
             x.SendAsync(
-                new EMailModel(
-                    request.EmailDto.SenderName,
-                    request.EmailDto.SenderEmail,
-                    request.EmailDto.Message,
+                new ContactModel(
+                    request.ContactDto.SenderName,
+                    request.ContactDto.SenderEmail,
+                    request.ContactDto.Message
+                        + Environment.NewLine
+                        + Environment.NewLine
+                        + $"Mobile Number: {request.ContactDto.PhoneNumber}",
                     ParlourName,
                     gmailSettings.Value.Email,
-                    $"Contact request from {request.EmailDto.SenderName}",
+                    $"Contact request from {request.ContactDto.SenderName}",
                     gmailSettings.Value.CcName,
                     gmailSettings.Value.CcEmail
                 ),
@@ -33,18 +36,18 @@ public class ContactUsCommandHandler(
             )
         );
 
-        var message = GetMessage(request.EmailDto.SenderName);
+        var message = GetMessage(request.ContactDto.SenderName);
 
         backgroundJobClient.ContinueJobWith<IEMailService>(
             firstJobId,
             x =>
                 x.SendAsync(
-                    new EMailModel(
+                    new ContactModel(
                         ParlourName,
                         gmailSettings.Value.Email,
                         message,
-                        request.EmailDto.SenderName,
-                        request.EmailDto.SenderEmail,
+                        request.ContactDto.SenderName,
+                        request.ContactDto.SenderEmail,
                         $"Reply from {ParlourName}",
                         null,
                         null
@@ -75,4 +78,4 @@ public class ContactUsCommandHandler(
     }
 }
 
-public record ContactUsCommand(EmailDto EmailDto) : ICommand<Result>;
+public record ContactUsCommand(ContactDto ContactDto) : ICommand<Result>;
