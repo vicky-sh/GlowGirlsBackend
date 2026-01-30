@@ -25,7 +25,9 @@ builder.Services.AddCors(options =>
     );
 });
 builder.Services.ConfigureServices(builder.Configuration);
-var app = builder.Build();
+var app = builder.Build(); 
+app.UseCors("AllowAngular");
+
 app.UseClientSecretValidation();
 
 // Configure the HTTP request pipeline.
@@ -48,6 +50,5 @@ app.UseHangfireDashboard(
 );
 
 app.UseHttpsRedirection();
-app.UseCors("AllowAngular");
 app.MapControllers();
 app.Run();
