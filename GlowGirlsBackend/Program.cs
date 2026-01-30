@@ -14,6 +14,16 @@ builder.Services.AddOpenApi(o =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpClient();
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        "AllowAngular",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+        }
+    );
+});
 builder.Services.ConfigureServices(builder.Configuration);
 var app = builder.Build();
 app.UseClientSecretValidation();
@@ -38,5 +48,6 @@ app.UseHangfireDashboard(
 );
 
 app.UseHttpsRedirection();
+app.UseCors("AllowAngular");
 app.MapControllers();
 app.Run();
