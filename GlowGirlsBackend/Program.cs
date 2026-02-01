@@ -14,7 +14,7 @@ builder.Services.AddCors(options =>
         "AllowGlowGirlsFrontend",
         policy =>
         {
-            policy.WithOrigins("https://glowgirlsparlour.com").AllowAnyHeader().AllowAnyMethod();
+            policy.WithOrigins("https://glowgirlsparlour.com", "http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
         }
     );
 });
