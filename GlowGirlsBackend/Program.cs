@@ -1,34 +1,26 @@
 using GlowGirlsBackend.Configuration;
 using GlowGirlsBackend.Extensions;
-using GlowGirlsBackend.Swagger;
 using Hangfire;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi(o =>
-{
-    o.AddOperationTransformer(new ClientSecretTransformer());
-});
+builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpClient();
 builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(
-        "AllowAngular",
+        "AllowGlowGirlsFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+            policy.WithOrigins("https://glowgirlsparlour.com").AllowAnyHeader().AllowAnyMethod();
         }
     );
 });
 builder.Services.ConfigureServices(builder.Configuration);
-var app = builder.Build(); 
-app.UseCors("AllowAngular");
-
-app.UseClientSecretValidation();
+var app = builder.Build();
+app.UseCors("AllowGlowGirlsFrontend");
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
